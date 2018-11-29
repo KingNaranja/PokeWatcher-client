@@ -6,6 +6,7 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -21,7 +22,7 @@
               <!-- replace one field for the other? -->
                 <form id= "sign-up">
                     <fieldset>
-                      <legend>Sign-up!</legend>
+                      <legend class="text">Sign-up!</legend>
                       <input type="text" name="credentials[email]" placeholder="Email"/>
                       <input type="password" name="credentials[password]" placeholder="Password">
                       <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
@@ -30,7 +31,7 @@
                 </form>
                 <form id= "sign-in">
                     <fieldset>
-                      <legend>Log-In!</legend>
+                      <legend class="text">Log-In!</legend>
                       <input type="text" name="credentials[email]" placeholder="Email"/>
                       <input type="password" name="credentials[password]" placeholder="Password">
                       <input type="submit" value="Log In!"/>
@@ -38,13 +39,13 @@
                 </form>
                 <form id= "sign-out">
                     <fieldset>
-                      <legend>Log-out!</legend>
+                      <legend class="text">Log-out!</legend>
                       <input type="submit" value="Log Out!"/>
                     </fieldset>
                 </form>
                 <form id="change-password">
                   <fieldset>
-                    <legend>Change password?</legend>
+                    <legend class="text">Change password?</legend>
                     <input type="password" name="passwords[old]" placeholder="Old password">
                     <input type="password" name="passwords[new]" placeholder="New password">
                     <input type="submit" value="Change password!">
@@ -54,9 +55,9 @@
             <!-- The responses from the api will be placed here. -->
             <div id='api-response'> API RESPONSE HERE</div>
             
-            
-            <div id='poke-diary'>
-              <h2>Today's PokéDiary!</h2>
+
+            <div id='poke-diary' class='pokemon'>
+              <h2 class='text'>Today's PokéDiary!</h2>
               <!-- handlbars -->
               <div id='diary-log'></div>
               <form>
@@ -64,10 +65,10 @@
               </form>
             </div>
             <!-- add Diary entries  -->
-            <div class='pokemon-form'>
+            <div id='pokemon-form' class='pokemon'>
                 <form id= "pokemon-entry">
                     <fieldset>
-                      <legend>Did you spot a Pokémon?</legend>
+                      <legend class='text'>Did you spot a Pokémon?</legend>
                       <input type="datetime" name="diaries[date]" placeholder="YYYY-MM-DD"/>
                       <input type="text" name="diaries[note]" placeholder="Describe your encounter">
                       <input type="submit" value="Log Pokémon Entry"/>
@@ -79,8 +80,8 @@
       </main>
 
       <footer>
-          <p class="copyright"> Copyright 2018</p>
-          <p class="message">Created with &hearts; by <span class="name">Kleide</span></p>
+          <p class=" text copyright"> Copyright 2018</p>
+          <p class="text message">Created with &hearts; by <span class="name">Kleide</span></p>
       </footer>
       
     </body>
