@@ -1,0 +1,14 @@
+{{#each diaries as |diary|}}
+  {{log diary}}
+  
+
+  <div>
+    <h1 class='userText' data-id="{{diary.id}}"> <small>Date: {{limit diary.date 10}}</small></h1>
+    {{#if diary.note}}
+      <p class="userText">{{diary.note}}</p>
+    {{else}}
+      No note provided.
+    {{/if}}
+  </div>
+{{/each}}
+

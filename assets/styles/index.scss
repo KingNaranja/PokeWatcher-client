@@ -1,1 +1,119 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'colors';
+@import 'typography';
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0 auto;
+    display: flex;
+    flex-direction:column;
+    background-color:$poke-orange * 1.2;
+    justify-items: space-between;
+    .text {
+        color: $poke-red *.8;
+        font-family: $gameFont
+    }
+    .userText {
+        color: $poke-red * 1.2;
+        font-family: $gameFont;
+        font-size: 20px;
+    }
+}
+
+header {
+    position: static;
+    text-align: center;
+    background-color:$poke-yellow *.9;
+    padding: 30px 0px;
+    h1 {
+        color:$poke-red;
+        font-family:$gameFont;
+        letter-spacing: 0.2em;
+        font-size: 60px;
+    }
+
+}
+ 
+main {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    button {
+        width: 50%;
+        align-self: center;
+        margin: 20px;
+        color: $poke-red;
+    }
+    .pokemon {
+        align-self: center;
+        padding: 50px;
+    }
+    
+}
+
+.poke-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .diary {
+        display: none;
+    }
+}
+
+.userForms {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    legend {
+        color: $poke-red * .8; // a tad darker  
+    }
+    #sign-out, #change-password {
+        display: none;
+    }
+    
+}
+
+#message {
+    display: none;
+    font-family: $gameFont;
+    font-size: 30px;
+    color: $poke-red * .8; // a tad darker
+    align-self: center;
+
+    &.success {
+        background-color: rgba(187, 109, 45, .3);
+        border-radius: 10px;
+        
+      }
+      &.failure {
+        background-color: rgb(136, 136, 243);
+        border-radius: 10px;
+      }
+}
+footer {
+    display: flex;
+    flex-shrink: 0;
+    margin: 20px 0px;
+    padding: 40px 20px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 25px;
+    .name {
+        color: $poke-red;
+    }
+}
+
+#diary-log{
+    div {
+        border: $poke-red 2px solid;
+        padding: 20px;
+        text-align: center;
+        border-radius: 15px;
+        font-size: 15px;
+      }
+}
