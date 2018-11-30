@@ -32,8 +32,8 @@ header {
     h1 {
         color:$poke-red;
         font-family:$gameFont;
-        letter-spacing: 0.3em;
-        font-size: 30px;
+        letter-spacing: 0.2em;
+        font-size: 60px;
     }
 
 }
@@ -111,8 +111,9 @@ footer {
 #diary-log{
     div {
         border: $poke-red 2px solid;
-        padding: 30px;
+        padding: 20px;
         text-align: center;
         border-radius: 15px;
+        font-size: 15px;
       }
 }
