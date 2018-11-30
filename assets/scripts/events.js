@@ -23,7 +23,6 @@ const onSignIn = event => {
     api.signIn(data)
         .then(ui.signInSuccess) 
         .catch(ui.signInFailure) 
-        
 
 }
 
@@ -45,14 +44,25 @@ const onSignOut = event => {
   const onGetAllEntries = event => {
       event.preventDefault()
       api.getAllEntries()
+        .then(ui.fillDiary)
         
   }
+
+  const createDiaryEntry = event => {
+      event.preventDefault()
+      const data = getFormFields(event.target)
+      api.createEntry(data)
+        .then(ui.diaryEntrySuccess)
+        .catch(ui.diaryEntryFailure)
+  }
+  
 
   module.exports = {
     onSignUp,
     onSignIn, 
     onSignOut,
     onChangePassword,
-    onGetAllEntries
+    onGetAllEntries,
+    createDiaryEntry
 
   }

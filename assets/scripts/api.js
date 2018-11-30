@@ -1,5 +1,5 @@
 const config = require('./config.js')
- const store = require('./store.js')
+const store = require('./store.js')
 
 const signUp = data => {
     
@@ -43,6 +43,34 @@ const changePassword = data => {
     })
   }
 
+const getAllEntries = () => {
+let user = store.userData
+
+let data = $.ajax({
+    url: config.apiUrl + '/diaries',
+    method: 'GET',
+    headers: {
+        Authorization: 'Token token=' + user.token
+    }
+    })
+return data     
+
+}
+
+const createEntry = (data) => {
+    let user = store.userData
+    console.log(data)
+
+    return $.ajax({
+      url: config.apiUrl + '/diaries',
+      method: 'POST',
+      headers: {
+        Authorization: 'Token token=' + user.token
+      },
+      data
+    })
+  
+}
 
 
 
@@ -50,7 +78,10 @@ const changePassword = data => {
     signUp,
     signIn,
     signOut,
-    changePassword
+    changePassword,
+    getAllEntries,
+    createEntry
+    
 
 
   }

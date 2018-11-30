@@ -1,4 +1,19 @@
 const store = require('./store.js') 
+const config = require('./config.js')
+const showDiariesTemplate = require('./templates/diary-listing.handlebars')
+
+const getTodaysEntry = () => {
+    let user = store.userData
+
+    return $.ajax({
+        url: config.apiUrl + '/diaries-today',
+        method: 'GET',
+        headers: {
+            Authorization: 'Token token=' + user.token
+        }
+        })
+    
+  }
 
 const toggle = () => {
     $('#message').toggle()
@@ -25,6 +40,8 @@ const signUpSuccess = data => {
     // success response
     addResponse('You Signed In Successfully!')
     toggle()
+
+    
     
 }
 
@@ -58,6 +75,9 @@ const signInSuccess = data => {
     $('#change-password').toggle("slow")
 
     toggle()
+    // put todays entries on the user page
+    getTodaysEntry().done(fillTodaysEntry)
+
 
 }
 
@@ -85,7 +105,7 @@ const signOutSuccess = () => {
     $('#change-password').toggle()
 
     
-    $('#.diary').hide()
+    $('.diary').hide()
     toggle()
   }
 
@@ -117,11 +137,30 @@ const signOutSuccess = () => {
     
   }
 
-  const fillDiary = () => {
-      
+  const fillDiary = data => {
+    console.log(data)
+    const showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
+    $('#diary-log').html(showDiaryHtml)
+
   }
 
+  const fillTodaysEntry = data => {
+    console.log(data)
+    const showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
+    $('#diary-log').html(showDiaryHtml)
+  }
 
+  const diaryEntrySuccess = () => {
+    addResponse('Successfully created a new entry!')
+    toggle()
+
+  }
+
+  const diaryEntryFailure = () => {
+    addResponse('Failed to create a new entry. Try Again?')
+    toggle()
+      
+}
 
 module.exports = {
     toggle,
@@ -133,6 +172,12 @@ module.exports = {
     signOutSuccess,
     signOutFailure,
     changePasswordSuccess,
-    changePasswordFailure
+    changePasswordFailure,
+    fillDiary, 
+    fillTodaysEntry,
+    getTodaysEntry,
+    diaryEntrySuccess,
+    diaryEntryFailure
+
 
 }

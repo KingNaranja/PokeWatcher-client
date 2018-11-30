@@ -17,6 +17,11 @@ body {
         color: $poke-red *.8;
         font-family: $gameFont
     }
+    .userText {
+        color: $poke-red * 1.2;
+        font-family: $gameFont;
+        font-size: 20px;
+    }
 }
 
 header {
@@ -101,4 +106,13 @@ footer {
     .name {
         color: $poke-red;
     }
+}
+
+#diary-log{
+    div {
+        border: $poke-red 2px solid;
+        padding: 30px;
+        text-align: center;
+        border-radius: 15px;
+      }
 }
