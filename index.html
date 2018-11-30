@@ -20,7 +20,7 @@
           <div class="userForms">
               <!-- forms for login/logout need to be hidden based on user state  -->
               <!-- replace one field for the other? -->
-                <form id= "sign-up">
+                <form id="sign-up">
                     <fieldset>
                       <legend class="text">Sign-up!</legend>
                       <input type="text" name="credentials[email]" placeholder="Email"/>
@@ -29,7 +29,7 @@
                       <input type="submit" value="Sign Up!"/>
                     </fieldset>
                 </form>
-                <form id= "sign-in">
+                <form id="sign-in">
                     <fieldset>
                       <legend class="text">Log-In!</legend>
                       <input type="text" name="credentials[email]" placeholder="Email"/>
@@ -37,7 +37,7 @@
                       <input type="submit" value="Log In!"/>
                     </fieldset>
                 </form>
-                <form id= "sign-out">
+                <form id="sign-out">
                     <fieldset>
                       <legend class="text">Log-out!</legend>
                       <input type="submit" value="Log Out!"/>
@@ -53,27 +53,35 @@
                </form>
             </div>
             <!-- The responses from the api will be placed here. -->
-            <div id='api-response'> API RESPONSE HERE</div>
+            <div id='message'> API RESPONSE HERE</div>
             
+            <div class='poke-container'>
 
-            <div id='poke-diary' class='pokemon'>
-              <h2 class='text'>Today's PokéDiary!</h2>
-              <!-- handlbars -->
-              <div id='diary-log'></div>
-              <form>
-                <input type="submit" value="Get All entries">
-              </form>
-            </div>
-            <!-- add Diary entries  -->
-            <div id='pokemon-form' class='pokemon'>
-                <form id= "pokemon-entry">
-                    <fieldset>
-                      <legend class='text'>Did you spot a Pokémon?</legend>
-                      <input type="datetime" name="diaries[date]" placeholder="YYYY-MM-DD"/>
-                      <input type="text" name="diaries[note]" placeholder="Describe your encounter">
-                      <input type="submit" value="Log Pokémon Entry"/>
-                    </fieldset>
-                </form>
+              <img src="assets/images/mew.png" alt="mew" height="200" width="200">
+
+              <div class='diary'>
+                <div id='poke-diary' class='pokemon'>
+                  <h2 class='text'>Today's PokéDiary!</h2>
+                  <!-- handlbars -->
+                  <div id='diary-log'></div>
+                  <form id='get-all-entries'>
+                    <input type="submit" value="Get All">
+                  </form>
+                </div>
+                <!-- add Diary entries  -->
+                <div id='pokemon-form' class='pokemon'>
+                    <form id= "pokemon-entry">
+                        <fieldset>
+                          <legend class='text'>Did you spot a Pokémon?</legend>
+                          <input type="datetime" name="diaries[date]" placeholder="YYYY-MM-DD"/>
+                          <input type="text" name="diaries[note]" placeholder="Describe your encounter">
+                          <input type="submit" value="Log Pokémon Entry"/>
+                        </fieldset>
+                    </form>
+                </div>
+              </div>
+              <img src="assets/images/celebi.png" alt="celebi" height="200" width="200">
+
             </div>
 
 

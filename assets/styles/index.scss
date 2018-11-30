@@ -27,7 +27,8 @@ header {
     h1 {
         color:$poke-red;
         font-family:$gameFont;
-        letter-spacing: 0.5em;
+        letter-spacing: 0.3em;
+        font-size: 30px;
     }
 
 }
@@ -35,7 +36,7 @@ header {
 main {
     display: flex;
     flex-direction: column;
-    //align-content: space-between;
+    align-content: space-between;
     button {
         width: 50%;
         align-self: center;
@@ -47,6 +48,15 @@ main {
         padding: 50px;
     }
     
+}
+
+.poke-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .diary {
+        display: none;
+    }
 }
 
 .userForms {
@@ -62,19 +72,21 @@ main {
     
 }
 
-#api-response, {
-    // display: none;
+#message {
+    display: none;
     font-family: $gameFont;
     font-size: 30px;
     color: $poke-red * .8; // a tad darker
     align-self: center;
 
     &.success {
-        background-color: rgb(138, 138, 212);
+        background-color: rgba(187, 109, 45, .3);
+        border-radius: 10px;
         
       }
       &.failure {
-        background-color: rgb(123, 123, 139);
+        background-color: rgb(136, 136, 243);
+        border-radius: 10px;
       }
 }
 footer {
@@ -90,4 +102,3 @@ footer {
         color: $poke-red;
     }
 }
-
