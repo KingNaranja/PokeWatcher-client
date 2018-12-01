@@ -76,7 +76,7 @@ const signInSuccess = data => {
 
     toggle()
     // put todays entries on the user page
-    getTodaysEntry().done(fillTodaysEntry)
+    getTodaysEntry().done(fillDiary)
 
 
 }
@@ -144,11 +144,6 @@ const signOutSuccess = () => {
 
   }
 
-  const fillTodaysEntry = data => {
-    console.log(data)
-    const showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
-    $('#diary-log').html(showDiaryHtml)
-  }
 
   const diaryEntrySuccess = () => {
     addResponse('Successfully created a new entry!')
@@ -174,7 +169,6 @@ module.exports = {
     changePasswordSuccess,
     changePasswordFailure,
     fillDiary, 
-    fillTodaysEntry,
     getTodaysEntry,
     diaryEntrySuccess,
     diaryEntryFailure
