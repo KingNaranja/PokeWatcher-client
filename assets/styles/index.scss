@@ -52,7 +52,7 @@ main {
 		align-self: center;
 		padding: 50px;
 	}
-	input[type='submit'] {
+	input[type='submit'], button {
 		border-radius: 5px;
 		background-color:$poke-yellow;
 		color: $poke-red;

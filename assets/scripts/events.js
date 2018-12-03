@@ -29,39 +29,62 @@ const onSignIn = event => {
 const onSignOut = event => {
 	event.preventDefault()
 	api.signOut()
-	  .then(ui.signOutSuccess)
-	  .catch(ui.signOutFailure)
-  }
+		.then(ui.signOutSuccess)
+		.catch(ui.signOutFailure)
+	}
 
-  const onChangePassword = event => {
+	const onChangePassword = event => {
 	event.preventDefault()
 	const data = getFormFields(event.target)
 	api.changePassword(data)
-	  .then(ui.changePasswordSuccess)
-	  .catch(ui.changePasswordFailure)
-  }
+		.then(ui.changePasswordSuccess)
+		.catch(ui.changePasswordFailure)
+	}
 
-  const onGetAllEntries = event => {
-	  event.preventDefault()
-	  api.getAllEntries()
+	const onGetAllEntries = event => {
+		event.preventDefault()
+		api.getAllEntries()
 		.then(ui.fillDiary)
 		
-  }
+	}
 
-  const createDiaryEntry = event => {
-	  event.preventDefault()
-	  const data = getFormFields(event.target)
-	  api.createEntry(data)
+	const createDiaryEntry = event => {
+		event.preventDefault()
+		const data = getFormFields(event.target)
+		api.createEntry(data)
 		.then(ui.diaryEntrySuccess)
 		.catch(ui.diaryEntryFailure)
-  }
-  
+	}
+	
+	const onDeleteEntry = event => {
+		// event.preventDefault()
+		// const diaryEntry = $(event.target).closest('section')
+		const diaryID = $(event.target).closest('section').data('id')
+		console.log(diaryID)
+		console.log(diaryEntry)
+		api.deleteEntry(diaryID)
+			.then(ui.deleteEntrySuccess)
+			.catch(ui.deleteEntryFailure)
 
-  module.exports = {
+	}
+
+	const onUpdateEntry = event => {
+		event.preventDefault()
+		const diaryID = $(event.target).closest('section').data('id')
+		console.log(diaryID)
+		api.updateEntry(diaryID)
+			// .then(ui.diaryEntrySuccess)
+		// .catch(ui.diaryEntryFailure)
+
+	}
+
+	module.exports = {
 	onSignUp,
 	onSignIn, 
 	onSignOut,
 	onChangePassword,
 	onGetAllEntries,
-	createDiaryEntry
-  }
+	createDiaryEntry,
+	onDeleteEntry,
+	onUpdateEntry
+	}

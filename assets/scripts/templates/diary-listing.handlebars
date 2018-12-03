@@ -2,26 +2,21 @@
 	{{log diary}}
 	
 	<div id='diary-entry'>
-		<div class='diary-data'>
-			<h1 class='userText' data-id="{{diary.id}}"> <small>Date: {{limit diary.date 10}}</small></h1>
-			{{#if diary.note}}
-			<p class="userText">{{diary.note}}</p>
-			{{else}}
-			No note provided.
-			{{/if}}
-		</div>
-		<div class='diary-forms'>
-			<form id="delete-entry">
-				<fieldset>
-				<input type="submit" value="Delete"/>
-				</fieldset>
-			</form>
-			<form id="update-entry">
-				<fieldset>
-				<input type="submit" value="Update"/>
-				</fieldset>
-			</form>
-		</div>
+		<section data-id={{diary.id}}>
+			<div class='diary-data'>
+				<h1 class='userText' data-id={{diary.id}}> <small>Date: {{limit diary.date 10}}</small></h1>
+
+				{{#if diary.note}}
+				<p class="userText">{{diary.note}}</p>
+				{{else}}
+				No note provided.
+				{{/if}}
+			</div>
+			<div class='diary-forms'>
+				<button type="submit" class="delete-entry">Remove</button>
+				<button type="submit" class="update-entry">Update</button>
+			</div>
+		</section>
 	</div>
 {{/each}}
 
