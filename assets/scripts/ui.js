@@ -139,7 +139,7 @@ const changePasswordFailure = () => {
 
 const fillDiary = data => {
 	console.log(data)
-	const showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
+	let showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
 	$('#diary-log').html(showDiaryHtml)
 
 }
@@ -157,10 +157,13 @@ const diaryEntryFailure = () => {
 		
 }
 
-const deleteEntrySuccess = () => {
+const deleteEntrySuccess = (data) => {
 	addResponse('Your entry was deleted')
 	toggle()
-
+	// update diary log entries 
+	let showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
+	$('#diary-log').html(showDiaryHtml)
+	
 }
 
 const deleteEntryFailure = () => {

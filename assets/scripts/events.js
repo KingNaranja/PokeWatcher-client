@@ -60,11 +60,13 @@ const onSignOut = event => {
 		// event.preventDefault()
 		// const diaryEntry = $(event.target).closest('section')
 		const diaryID = $(event.target).closest('section').data('id')
-		console.log(diaryID)
-		console.log(diaryEntry)
+		const data = getFormFields(event.target)
+		// console.log(diaryID)
 		api.deleteEntry(diaryID)
 			.then(ui.deleteEntrySuccess)
 			.catch(ui.deleteEntryFailure)
+			
+			
 
 	}
 
