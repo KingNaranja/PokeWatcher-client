@@ -31,7 +31,7 @@ const addResponse = (message) => {
 }
 
 
-const signUpSuccess = data => {
+const signUpSuccess = () => {
 	
 	//attach success class to our status message 
 	$('#message').removeClass()
@@ -40,6 +40,8 @@ const signUpSuccess = data => {
 	// success response
 	addResponse('You Signed In Successfully!')
 	toggle()
+	// clear form values 
+	$('#sign-up')[0].reset()
 
 	
 	
@@ -73,6 +75,8 @@ const signInSuccess = data => {
 	$('#sign-in').toggle()
 	$('#sign-out').toggle("slow")
 	$('#change-password').toggle("slow")
+	// clear form values
+	$('#sign-in')[0].reset()
 
 	toggle()
 	// put todays entries on the user page
@@ -103,6 +107,8 @@ const signOutSuccess = () => {
 	$('#sign-in').toggle('slow')
 	$('#sign-out').toggle()
 	$('#change-password').toggle()
+
+
 
 	
 	$('.diary').hide()
@@ -145,9 +151,16 @@ const fillDiary = data => {
 }
 
 
-const diaryEntrySuccess = () => {
+const diaryEntrySuccess = (data) => {
 	addResponse('Successfully created a new entry!')
 	toggle()
+	// refresh the diary entry list 
+	let showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
+	$('#diary-log').html(showDiaryHtml)
+	// clear input field
+	$("#pokemon-entry")[0].reset()
+	
+	
 
 }
 

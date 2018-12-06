@@ -58,9 +58,7 @@ const onSignOut = event => {
 	
 	const onDeleteEntry = event => {
 		// event.preventDefault()
-		// const diaryEntry = $(event.target).closest('section')
 		const diaryID = $(event.target).closest('section').data('id')
-		const data = getFormFields(event.target)
 		// console.log(diaryID)
 		api.deleteEntry(diaryID)
 			.then(ui.deleteEntrySuccess)
