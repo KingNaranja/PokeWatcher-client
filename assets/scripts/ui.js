@@ -80,7 +80,11 @@ const signInSuccess = data => {
 
 	toggle()
 	// put todays entries on the user page
-	getTodaysEntry().done(fillDiary)
+	getTodaysEntry()
+		.then( ()=>{
+			$('.updateEntry').on('submit',onUpdateEntry)
+		})
+		.done(fillDiary)
 
 
 }
@@ -109,8 +113,6 @@ const signOutSuccess = () => {
 	$('#change-password').toggle()
 
 
-
-	
 	$('.diary').hide()
 	toggle()
   }
@@ -185,6 +187,11 @@ const deleteEntryFailure = () => {
 
 }
 
+const updateEntrySuccess = () => {
+	addResponse('Your entry was updated!')
+	toggle()
+}
+
 module.exports = {
 	toggle,
 	addResponse,
@@ -201,8 +208,8 @@ module.exports = {
 	diaryEntrySuccess,
 	diaryEntryFailure,
 	deleteEntrySuccess,
-	deleteEntryFailure
+	deleteEntryFailure,
+	updateEntrySuccess
 	
-
 
 }

@@ -88,7 +88,7 @@ const deleteEntry = (id) => {
 
 }
 
-const updateEntry = (id) => {
+const updateEntry = (data, id) => {
 	let user = store.userData
 	console.log(id)
 
@@ -97,7 +97,8 @@ const updateEntry = (id) => {
 		method: 'PATCH',
 		headers: {
 			Authorization: 'Token token=' + user.token
-		}
+		},
+		data
 
 	})
 }

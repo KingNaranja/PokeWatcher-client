@@ -13,7 +13,34 @@
 			</div>
 			<div class='diary-forms'>
 				<button type="submit" class="delete-entry">Remove</button>
-				<button type="submit" class="update-entry">Update</button>
+				{{!-- <button type="submit" class="update-entry">Update</button> --}}
+				{{!-- modal button  --}}
+				<button type="button" class="update_btn btn-primary" data-toggle="modal"
+				data-target=".showUpdate" data-diary="update">Update</button>
+				{{!-- Modal --}}
+				<div class="modal fade showUpdate" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="updateModalLabel">Update Entry</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form class="updateEntry">
+									<fieldset>
+										<input type="datetime" name="diary[date]" placeholder="YYYY-MM-DD">
+										<input type="text" name="diary[note]" placeholder="What Happened ?">
+										<button type="submit" class="send-update btn btn-primary">Update</button>
+									</fieldset>
+								</form>
+							</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>

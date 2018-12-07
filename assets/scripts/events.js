@@ -21,7 +21,7 @@ const onSignIn = event => {
 
 	let data = getFormFields(event.target)
 	api.signIn(data)
-		.then(ui.signInSuccess) 
+		.then(ui.signInSuccess)
 		.catch(ui.signInFailure) 
 
 }
@@ -45,6 +45,9 @@ const onSignOut = event => {
 		event.preventDefault()
 		api.getAllEntries()
 		.then(ui.fillDiary)
+		.then( ()=>{
+			$('.updateEntry').on('submit',onUpdateEntry)
+		})
 		
 	}
 
@@ -70,12 +73,21 @@ const onSignOut = event => {
 
 	const onUpdateEntry = event => {
 		event.preventDefault()
+		console.log('this button was clicked', event.target)
+
+		const data = getFormFields(event.target)
+		console.log(data)
+		// find diary entry id 
 		const diaryID = $(event.target).closest('section').data('id')
 		console.log(diaryID)
-		api.updateEntry(diaryID)
-			// .then(ui.diaryEntrySuccess)
-		// .catch(ui.diaryEntryFailure)
 
+		api.updateEntry(data,diaryID)
+			.then(ui.updateEntrySuccess)
+			// update entries
+			
+
+		
+	
 	}
 
 	module.exports = {
