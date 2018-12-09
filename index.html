@@ -64,22 +64,28 @@
                   <h2 class='text'>Today's PokéDiary!</h2>
                   <!-- handlbars -->
                   <div id='diary-log'></div>
-                  <form id='get-all-entries'>
-                    <input type="submit" value="Get All">
-                  </form>
+                  <div id="poke-forms">
+                      <form id='get-all-entries'>
+                          <input type="submit" value="Get All">
+                        </form>
+                        <form id='hide-all-entries'>
+                          <input type="submit" value="Hide">
+                        </form>
+                  </div>   
                 </div>
                 <!-- add Diary entries  -->
                 <div id='pokemon-form' class='pokemon'>
-                    <form id= "pokemon-entry">
+                    <form id="pokemon-entry">
                         <fieldset>
                           <legend class='text'>Did you spot a Pokémon?</legend>
                           <input type="datetime" name="diary[date]" placeholder="YYYY-MM-DD"/>
-                          <input type="text" name="diary[note]" placeholder="Describe your encounter">
+                          <input type="text" name="diary[note]" placeholder="What Happened ?">
                           <input type="submit" value="Log Encounter"/>
                         </fieldset>
                     </form>
                 </div>
               </div>
+              
               <img src="public/celebi.png" alt="celebi" height="200" width="200">
 
             </div>
