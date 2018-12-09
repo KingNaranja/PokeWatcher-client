@@ -81,10 +81,7 @@ const signInSuccess = data => {
 	toggle()
 	// put todays entries on the user page
 	getTodaysEntry()
-		// .then( ()=>{
-		// 	$('.updateEntry').on('submit',onUpdateEntry)
-		// })
-		.done(fillDiary)
+		.then(fillDiary)
 		
 	
 
@@ -116,6 +113,8 @@ const signOutSuccess = () => {
 
 	$('.diary').hide()
 	toggle()
+	// clear any diary data
+	$('diary.log').html('')
   }
 
 const signOutFailure = () => {
@@ -186,7 +185,7 @@ const deleteEntrySuccess = (data) => {
 	toggle()
 	// update diary log entries 
 	fillDiary(data)
-	
+
 	// saves user's diaries 
 	store.userData.diaries = data
 	
