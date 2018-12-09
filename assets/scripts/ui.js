@@ -164,10 +164,13 @@ const diaryEntrySuccess = (data) => {
 	addResponse('Successfully created a new entry!')
 	toggle()
 	// refresh the diary entry list 
-	let showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
-	$('#diary-log').html(showDiaryHtml)
+	fillDiary(data)
 	// clear input field
 	$("#pokemon-entry")[0].reset()
+
+	// saves user's diaries 
+	store.userData.diaries = data
+
 	
 
 }
@@ -182,8 +185,10 @@ const deleteEntrySuccess = (data) => {
 	addResponse('Your entry was deleted')
 	toggle()
 	// update diary log entries 
-	let showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
-	$('#diary-log').html(showDiaryHtml)
+	fillDiary(data)
+	
+	// saves user's diaries 
+	store.userData.diaries = data
 	
 }
 
@@ -200,6 +205,8 @@ const updateEntrySuccess = (data) => {
 	// refresh the diary entry list 
 	$('.showUpdate').modal('hide')
 	fillDiary(data)
+
+	
 }
 
 module.exports = {
