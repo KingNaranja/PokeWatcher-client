@@ -53,6 +53,7 @@ let data = $.ajax({
 				Authorization: 'Token token=' + user.token
 		}
 		})
+		console.log(data)
 return data     
 
 }
@@ -98,7 +99,7 @@ const updateEntry = (data, id) => {
 		headers: {
 			Authorization: 'Token token=' + user.token
 		},
-		data
+		data: data
 
 	})
 }

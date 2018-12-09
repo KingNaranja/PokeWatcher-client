@@ -11,14 +11,14 @@
 				No note provided.
 				{{/if}}
 			</div>
-			<div class='diary-forms'>
+			<div class='diary-forms' >
 				<button type="submit" class="delete-entry">Remove</button>
 				{{!-- <button type="submit" class="update-entry">Update</button> --}}
 				{{!-- modal button  --}}
-				<button type="button" class="update_btn btn-primary" data-toggle="modal"
-				data-target=".showUpdate" data-diary="update">Update</button>
-				{{!-- Modal --}}
-				<div class="modal fade showUpdate" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+				<button type="button" class="update_btn btn-primary" data-id={{diary.id}} data-target=".showUpdate" data-toggle="modal"
+				 data-diary="update">Update</button>
+				
+				<div class="modal showUpdate" tabindex="-1" role="dialog" data-id={{diary.id}} aria-labelledby="updateModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -28,7 +28,7 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form class="updateEntry">
+								<form class="updateEntry" data-id={{diary.id}}>
 									<fieldset>
 										<input type="datetime" name="diary[date]" placeholder="YYYY-MM-DD">
 										<input type="text" name="diary[note]" placeholder="What Happened ?">

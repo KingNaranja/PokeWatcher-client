@@ -38,7 +38,7 @@ const signUpSuccess = () => {
 	$('#message').addClass('success')
 
 	// success response
-	addResponse('You Signed In Successfully!')
+	addResponse('You Signed Up Successfully!')
 	toggle()
 	// clear form values 
 	$('#sign-up')[0].reset()
@@ -81,11 +81,12 @@ const signInSuccess = data => {
 	toggle()
 	// put todays entries on the user page
 	getTodaysEntry()
-		.then( ()=>{
-			$('.updateEntry').on('submit',onUpdateEntry)
-		})
+		// .then( ()=>{
+		// 	$('.updateEntry').on('submit',onUpdateEntry)
+		// })
 		.done(fillDiary)
-
+		
+	
 
 }
 
@@ -147,8 +148,12 @@ const changePasswordFailure = () => {
 
 const fillDiary = data => {
 	console.log(data)
+
 	let showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
 	$('#diary-log').html(showDiaryHtml)
+	
+	
+	
 
 }
 
@@ -161,7 +166,6 @@ const diaryEntrySuccess = (data) => {
 	$('#diary-log').html(showDiaryHtml)
 	// clear input field
 	$("#pokemon-entry")[0].reset()
-	
 	
 
 }
@@ -187,9 +191,15 @@ const deleteEntryFailure = () => {
 
 }
 
-const updateEntrySuccess = () => {
+const updateEntrySuccess = (data) => {
 	addResponse('Your entry was updated!')
 	toggle()
+	console.log('update was a success diaries are :', data)
+	console.log(data.diaries)
+	
+	// refresh the diary entry list 
+	$('.showUpdate').modal('hide')
+	fillDiary(data)
 }
 
 module.exports = {

@@ -1,7 +1,8 @@
 const getFormFields = require('../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
-// const store = require('./store.js')
+const store = require('./store.js')
+
 
 
 const onSignUp = event => {
@@ -23,7 +24,6 @@ const onSignIn = event => {
 	api.signIn(data)
 		.then(ui.signInSuccess)
 		.catch(ui.signInFailure) 
-
 }
 
 const onSignOut = event => {
@@ -41,15 +41,7 @@ const onSignOut = event => {
 		.catch(ui.changePasswordFailure)
 	}
 
-	const onGetAllEntries = event => {
-		event.preventDefault()
-		api.getAllEntries()
-		.then(ui.fillDiary)
-		.then( ()=>{
-			$('.updateEntry').on('submit',onUpdateEntry)
-		})
-		
-	}
+	
 
 	const createDiaryEntry = event => {
 		event.preventDefault()
@@ -77,18 +69,26 @@ const onSignOut = event => {
 
 		const data = getFormFields(event.target)
 		console.log(data)
-		// find diary entry id 
-		const diaryID = $(event.target).closest('section').data('id')
-		console.log(diaryID)
 
+		// get and assign diary entry id 
+		const diaryID = store.userData.currentDiary
+		console.log(store.userData.currentDiary)
+
+		// send request then update ui
 		api.updateEntry(data,diaryID)
 			.then(ui.updateEntrySuccess)
-			// update entries
+			
 			
 
-		
-	
 	}
+
+	const onGetAllEntries = event => {
+		event.preventDefault()
+		api.getAllEntries()
+		.then(ui.fillDiary)
+		
+	}
+
 
 	module.exports = {
 	onSignUp,

@@ -1,6 +1,8 @@
 'use strict'
 
 const events = require('./events.js')
+const store = require('./store.js')
+
 
 $(() => {
 
@@ -12,7 +14,17 @@ $(() => {
 	$('#get-all-entries').on('submit', events.onGetAllEntries)  
 	$('#pokemon-form').on('submit', events.createDiaryEntry)
 	$('#diary-log').on('click','.delete-entry', events.onDeleteEntry)
+
+	$('#diary-log').on('submit', '.updateEntry', events.onUpdateEntry)
 	
+	$('#diary-log').on('click', '.update_btn', function(){
+
+		let updateId = event.target.dataset.id
+		console.log(event.target.dataset.id)
+
+		store.userData.currentDiary = updateId
+		
+	})
 
 
 })
