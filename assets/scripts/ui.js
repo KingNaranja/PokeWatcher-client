@@ -147,7 +147,9 @@ const changePasswordFailure = () => {
 }
 
 const fillDiary = data => {
-	console.log(data)
+	
+	// saves user's diaries 
+	store.userData.diaries = data
 
 	let showDiaryHtml = showDiariesTemplate({ diaries: data.diaries })
 	$('#diary-log').html(showDiaryHtml)
@@ -194,8 +196,6 @@ const deleteEntryFailure = () => {
 const updateEntrySuccess = (data) => {
 	addResponse('Your entry was updated!')
 	toggle()
-	console.log('update was a success diaries are :', data)
-	console.log(data.diaries)
 	
 	// refresh the diary entry list 
 	$('.showUpdate').modal('hide')

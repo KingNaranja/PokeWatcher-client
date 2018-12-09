@@ -53,14 +53,12 @@ let data = $.ajax({
 				Authorization: 'Token token=' + user.token
 		}
 		})
-		console.log(data)
 return data     
 
 }
 
 const createEntry = (data) => {
 	let user = store.userData
-	console.log(data)
 
 	return $.ajax({
 		url: config.apiUrl + '/diaries',

@@ -56,11 +56,12 @@ main {
 		border-radius: 5px;
 		padding:8px;
 	}
-	input[type='submit'], button {
+	input[type='submit'], button, .update_btn {
 		border-radius: 5px;
 		background-color:$poke-yellow;
 		color: $poke-red;
 		padding: 7px;
+		border: 5px;
 	} 
 	
 	
@@ -126,9 +127,9 @@ footer {
 	flex-flow: row wrap;
 	#diary-entry {
 		display: flex;
-		border: $poke-red 2px solid;
+		border: $poke-red 3px outset;
 		padding: 20px;
-		margin: 15px;
+		margin: 12px;
 		justify-content: center;
 		flex-direction: column;
 		flex: 1;
@@ -148,5 +149,16 @@ footer {
 	.userText {
 		font-size: 25px;
 	} 
+	
+
+}
+
+.diary{
+	.poke-forms {
+		margin: 5px;
+		display: flex;
+		align-content: space-around;
+		
+	}
 
 }

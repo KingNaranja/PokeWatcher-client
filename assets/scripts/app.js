@@ -17,14 +17,16 @@ $(() => {
 
 	$('#diary-log').on('submit', '.updateEntry', events.onUpdateEntry)
 	
+	// delegated update diary event 
 	$('#diary-log').on('click', '.update_btn', function(){
-
+		// find diary data id 
 		let updateId = event.target.dataset.id
-		console.log(event.target.dataset.id)
-
-		store.userData.currentDiary = updateId
-		
+		// store user's working diary
+		store.userData.currentDiary = updateId	
 	})
 
+	// hides the user's diary
+	$('#hide-all-entries').on('submit', events.onHideAllEntries)  
+	
 
 })

@@ -84,8 +84,25 @@ const onSignOut = event => {
 
 	const onGetAllEntries = event => {
 		event.preventDefault()
+		$('#diary-log').show('fast')
 		api.getAllEntries()
 		.then(ui.fillDiary)
+		
+	}
+
+	// hide the diary entries 
+	const onHideAllEntries = (event) => {
+		event.preventDefault()
+		// finds user's diary entries
+		let current_diaries = store.userData.diaries
+
+		// if user is not reading any diaries,
+		if (current_diaries) {
+			$('#diary-log').hide('fast')
+			current_diaries = null
+			
+		
+		} 
 		
 	}
 
@@ -98,5 +115,6 @@ const onSignOut = event => {
 	onGetAllEntries,
 	createDiaryEntry,
 	onDeleteEntry,
-	onUpdateEntry
+	onUpdateEntry,
+	onHideAllEntries
 	}
