@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>PokeWatcher</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    
+    <body>
+      <header>
+          <h1>PokéWatcher</h1>
+      </header>
+      <main>
+          <div class="userForms">
+              <!-- forms for login/logout need to be hidden based on user state  -->
+              <!-- replace one field for the other? -->
+                <form id="sign-up">
+                    <fieldset>
+                      <legend class="text">Sign-up!</legend>
+                      <input type="text" name="credentials[email]" placeholder="Email"/>
+                      <input type="password" name="credentials[password]" placeholder="Password">
+                      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                      <input type="submit" value="Sign Up!"/>
+                    </fieldset>
+                </form>
+                <form id="sign-in">
+                    <fieldset>
+                      <legend class="text">Log-In!</legend>
+                      <input type="text" name="credentials[email]" placeholder="Email"/>
+                      <input type="password" name="credentials[password]" placeholder="Password">
+                      <input type="submit" value="Log In!"/>
+                    </fieldset>
+                </form>
+                <form id="sign-out">
+                    <fieldset>
+                      <legend class="text">Log-out!</legend>
+                      <input type="submit" value="Log Out!"/>
+                    </fieldset>
+                </form>
+                <form id="change-password">
+                  <fieldset>
+                    <legend class="text">Change password?</legend>
+                    <input type="password" name="passwords[old]" placeholder="Old password">
+                    <input type="password" name="passwords[new]" placeholder="New password">
+                    <input type="submit" value="Change password!">
+                  </fieldset>
+               </form>
+            </div>
+            <!-- The responses from the api will be placed here. -->
+            <div id='message'> API RESPONSE HERE</div>
+            
+            <div class='poke-container'>
+
+              <img src="public/mew.png" alt="mew" height="200" width="200">
+
+              <div class='diary'>
+                <div id='poke-diary' class='pokemon'>
+                  <h2 class='text'>Today's PokéDiary!</h2>
+                  <!-- handlbars -->
+                  <div id='diary-log'></div>
+                  <div id="poke-forms">
+                      <form id='get-all-entries'>
+                          <input type="submit" value="Get All">
+                        </form>
+                        <form id='hide-all-entries'>
+                          <input type="submit" value="Hide">
+                        </form>
+                  </div>   
+                </div>
+                <!-- add Diary entries  -->
+                <div id='pokemon-form' class='pokemon'>
+                    <form id="pokemon-entry">
+                        <fieldset>
+                          <legend class='text'>Did you spot a Pokémon?</legend>
+                          <input type="datetime" name="diary[date]" placeholder="YYYY-MM-DD"/>
+                          <input type="text" name="diary[note]" placeholder="What Happened ?">
+                          <input type="submit" value="Log Encounter"/>
+                        </fieldset>
+                    </form>
+                </div>
+              </div>
+              <img src="public/celebi.png" alt="celebi" height="200" width="200">
+
+            </div>
+
+
+      </main>
+
+      <footer>
+          <p class=" text copyright"> Copyright 2018</p>
+          <p class="text message">Created with &hearts; by <span class="name">Kleide</span></p>
+      </footer>
+      
+    </body>
+</html>
